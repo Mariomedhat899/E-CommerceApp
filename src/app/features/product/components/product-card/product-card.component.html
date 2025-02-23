@@ -1,0 +1,15 @@
+<div  class="hover:border hover:border-main rounded-2xl p-20 md:p-3 hover:shadow-main cursor-pointer transition duration-1000 group">
+    <div [routerLink]="['/main/product-details/',product.id]">
+        <img [src]="product.imageCover" class="w-full rounded-4xl" alt="">
+    <h5 class="category text-main ">{{product.category.name}}</h5>
+    <h4 class="title font-bold line-clamp-1">{{product.title}}</h4>
+    <div class="flex justify-between my-5">
+        <span class="price">{{product.price}}EGP</span>
+        <span class="rating"><i class="fa-solid fa-star text-rating"></i>{{product.ratingsAverage}}</span>
+    </div>
+    </div>
+
+    
+        <button (click)="OnAddToCart()" class="main-btn opacity-0 translate-y-full  hover:bg-main  transition duration-1000 group-hover:translate-y-0 group-hover:opacity-100">Add to cart</button>
+
+</div>

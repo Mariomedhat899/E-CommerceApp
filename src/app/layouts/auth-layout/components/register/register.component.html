@@ -1,0 +1,48 @@
+<section class="container mx-auto px-4 py-8 my-10  ">
+    <h2 class="text-4xl  font-bold mb-5 text-center">Register Now:</h2>
+    
+
+    <form (ngSubmit)="submitForm()" [formGroup]="authform" class="max-w-sm md:max-w-xl mx-auto shadow-2xl shadow-main p-10 rounded-3xl">
+    <div class="relative z-0 w-full mb-5 group">
+        <input  type="text" formControlName="name" name="name" id="floating_name" class=" block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="floating_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Name</label>
+       <vm [control]="authform.get('name')"/>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+        <input type="email" formControlName="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
+        <vm [control]="authform.get('email')"/>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+        <input [type]="password ? 'text' : 'password'" formControlName="password" name="floating_password" id="floating_password" class="relative block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+        <vm [control]="authform.get('password')"/>
+        <button type="button" class="py-2 px-3 cursor-pointer absolute top-0 right-0" (click)="showPassword()"><i class="fa-solid fa-unlock"></i></button>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+        <input type="password" formControlName="rePassword" name="rePassword" id="floating_repeat_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
+        <vm [control]="authform"/>    
+    </div>
+    
+    
+    <button [disabled]="authform.invalid ||!isloading" [class.bg-gray-400]="authform.invalid||!isloading" type="submit"  class="main-btn">
+        @if(isloading ==true){
+            
+            Submit
+        }@else {
+            <i class="fa-solid fa-circle-notch animate-spin"></i>
+
+        }
+    </button>
+        
+    @if(resMessage != ''){
+        <div class="p-4 mb-4 text-sm text-red-100 text-center rounded-lg bg-red-800 dark:bg-gray-800 dark:text-red-400 mt-10" role="alert">
+            {{resMessage}}
+          </div>
+    }
+  </form>
+
+  
+</section>
+
