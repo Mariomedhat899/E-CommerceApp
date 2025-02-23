@@ -14,7 +14,7 @@
 
 @layer components{
     .main-btn{
-        @apply bg-main/80 text-white px-5 py-2  translate-y-full rounded-xl w-full hover:bg-main cursor-pointer transition duration-1000   my-5 ;
+        @apply bg-main/80 text-white px-5 py-2   rounded-xl w-full hover:bg-main cursor-pointer transition duration-1000   my-5 ;
     }
 }
 
