@@ -14,6 +14,9 @@ import { AuthService } from '../../../../layouts/auth-layout/services/auth.servi
 })
 export class CheckoutComponent {
 
-  
+  private readonly fb = inject(FormBuilder);
+  private readonly router = inject(Router);
+  private readonly authService =inject(AuthService)
+  private readonly orderService =inject(OrderService)
 
 }
