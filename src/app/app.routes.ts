@@ -34,7 +34,7 @@ export const routes: Routes = [
         {path:'categories',component:CategoryComponent},
         {path:'brands',component:BrandsComponent},
         {path:'cart',component:CartComponent},
-        {path:'checkout',component:CheckoutComponent},
+        {path:'checkout/:id',component:CheckoutComponent},
 
 
     ]},

@@ -1,8 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
-import { AuthService } from '../../../../layouts/auth-layout/services/auth.service';
 import { ProductService } from '../../../product/services/product.service';
-import { product } from '../../../product/models/product';
+import { Brand, Product, Product2 } from '../../../models/cart.interface';
+import { BrandService } from '../../services/brand.service';
 
 @Component({
   selector: 'app-brands',
@@ -13,24 +12,25 @@ import { product } from '../../../product/models/product';
 export class BrandsComponent {
 [x: string]: any;
 
- private readonly product = inject(ProductService);
+ private readonly Brand = inject(BrandService);
 
-  allbrands: product[] = [];
+  allbrands: Brand[] = [];
 
 
-  ngOnInit() {
-    this.product.getProducts().subscribe({
-      next: ({ data }) => {
-        if (Array.isArray(data)) {
-          this.allbrands = data;
-        } else {
-          console.error('Expected an array of products');
-        }
-      },
-      error: (err) => {
-        console.error('Error fetching products', err);
+  getBrands(){
+
+    this.Brand.getAllBrands().subscribe({
+      next:({data})=>{
+
+        this.allbrands =data;
+
       }
-    });
+    })
+
+  }
+
+  ngOnInit(){
+    this.getBrands();
   }
 
 

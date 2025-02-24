@@ -19,4 +19,19 @@ export class CheckoutComponent {
   private readonly authService =inject(AuthService)
   private readonly orderService =inject(OrderService)
 
+  checkForm !:FormGroup;
+
+  FormInit(){
+    this.checkForm = this.fb.group({
+      details: [null, [Validators.required]],
+      phone: [null, [Validators.required ]],
+      city: [null, [Validators.required]],
+  
+    })
+  }
+
+  ngOnInIt(){
+    this.FormInit();
+  }
+
 }

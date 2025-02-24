@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { product } from '../../../product/models/product';
 import { ProductService } from '../../../product/services/product.service';
+import { Category } from '../../../models/cart.interface';
+import { CategoriesService } from '../../services/categories.service';
 
 @Component({
   selector: 'app-category',
@@ -10,25 +12,25 @@ import { ProductService } from '../../../product/services/product.service';
 })
 export class CategoryComponent {
 
-  private readonly product = inject(ProductService);
+  private readonly Category = inject(CategoriesService);
   
-    allCategories: product[] = [];
+    allCategories:Category[] =[];
+
+
+  getAllCategories(){
+    this.Category.getAllCategories().subscribe({
+      next:({data})=>{
+
+        this.allCategories = data;
+      }
+    })
+  }
   
+    
+  ngOnInit(){
+    this.getAllCategories();
+  }
   
-    ngOnInit() {
-      this.product.getProducts().subscribe({
-        next: ({ data }) => {
-          if (Array.isArray(data)) {
-            this.allCategories = data;
-          } else {
-            console.error('Expected an array of products');
-          }
-        },
-        error: (err) => {
-          console.error('Error fetching products', err);
-        }
-      });
-    }
   
 
 }

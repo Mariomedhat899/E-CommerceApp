@@ -2,23 +2,26 @@
     
     <h2  class="text-4xl  font-bold mb-5 text-center">All Brands</h2>
   
-      <div class="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-10">
+      <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
   
   
           @for (brand of allbrands; track $index) {
   
-            <div  class=" rounded-2xl p-20 md:p-3 hover:shadow-main  transition duration-1000 group">
-                <div >
-                    <img [src]="brand.brand.image" class="w-full" alt="">
-                <h5 class="brand  ">{{brand.brand.name}}</h5>
-                
-                </div>
-            
+           
+                <div  class="border border-gray-400 hover:shadow-blue-400 hover:shadow-2xl  p-20 md:p-3   transition duration-1000 group">
+                    <div >
+                    <img [src]="brand.image" alt="">
+
+                    <h2 class="text-center font-bold">{{brand.name}}</h2>
+                    
+                    </div>
                 
                     
-            
-            </div>
-          }
+                        
+                
+                </div>
+            }
+          
   
          
       </div>

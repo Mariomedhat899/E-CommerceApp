@@ -13,8 +13,13 @@ export class CartService {
   constructor(private http:HttpClient,private pro:ProductService,private auth:AuthService) { }
 
   addToCart(productId:string):Observable<any>{
-    return this.http.post(environment.baseUrl + "cart/",{
+    return this.http.post(environment.baseUrl + "cart",{
       productId,
+    },{
+      headers:{
+      token: this.auth.getToken()!.toString()
+
+      }
     })
   }
 
@@ -22,30 +27,40 @@ export class CartService {
 
     return this.http.put(environment.baseUrl +"cart/" +productId,{
       count
+    },{
+      headers:{
+        token: this.auth.getToken()!.toString()
+      }
     })
   }
 
   getLoggedUserCart():Observable<any>{
 
-    return this.http.get(environment.baseUrl +"cart/",
+    return this.http.get(environment.baseUrl +"cart",
       {
-      
+      headers:{
+        token: this.auth.getToken()!.toString()
+      }
     })
   }
 
   removeCartIteam(productId:string):Observable<any>{
 
-    return this.http.delete(environment.baseUrl +"cart/" +productId,
+    return this.http.delete(environment.baseUrl +"cart" +productId,
       {
-      
+      headers:{
+        token: this.auth.getToken()!.toString()
+      }
     })
   }
 
   ClearUserCart():Observable<any>{
 
-    return this.http.delete(environment.baseUrl +"cart/",
+    return this.http.delete(environment.baseUrl +"cart",
       {
-      
+      headers:{
+        token: this.auth.getToken()!.toString()
+      }
     })
   }
       

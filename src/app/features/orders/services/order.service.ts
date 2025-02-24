@@ -11,7 +11,7 @@ export class OrderService {
   constructor(private http:HttpClient,private auth:AuthService) { }
 
   createCheckOut(cartId:string,ShippingAdress:{details:string,phone:string,city:string}){
-    this.http.post(environment.baseUrl+'orders/' +cartId,{
+    this.http.post(environment.baseUrl+'orders/checkout-session/' +cartId,{
       ShippingAdress
         
     },{
