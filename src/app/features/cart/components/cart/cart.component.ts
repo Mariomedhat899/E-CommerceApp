@@ -23,6 +23,8 @@ export class CartComponent {
       next:(res)=>{
         this.cartDetails = res;
         this.isLoading = true;
+
+        this.cartService.counter.set(this.cartDetails.numOfCartItems);
       }
     })
   }
@@ -37,6 +39,7 @@ export class CartComponent {
       next:(res)=>{
 
         this.cartDetails = res;
+        this.cartService.counter.set(this.cartDetails.numOfCartItems);
         
       }
     })
@@ -47,6 +50,7 @@ export class CartComponent {
     this.cartService.updateCartQuantity(id,count).subscribe({
       next:(res)=>{
         this.cartDetails = res;
+        this.cartService.counter.set(this.cartDetails.numOfCartItems);
       }
     })
   }

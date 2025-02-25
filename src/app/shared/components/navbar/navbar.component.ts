@@ -1,7 +1,6 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, computed, inject, Input } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../../layouts/auth-layout/services/auth.service';
-import { ProductService } from '../../../features/product/services/product.service';
 import { CartService } from '../../../features/cart/services/cart.service';
 
 @Component({
@@ -18,7 +17,7 @@ export class NavbarComponent {
   private readonly authService =inject(AuthService);
   private readonly cart = inject(CartService);
 
-  cartcount = 0;
+  cartcount =computed(()=>this.cart.counter());
 
   private router = inject(Router);
 
@@ -30,15 +29,5 @@ export class NavbarComponent {
 
   }
 
-  ngOnInit(){
-    this.cart.getLoggedUserCart().subscribe({
-      next:({numOfCartItems})=>{
-
-        this.cartcount = numOfCartItems;
-
-  
-        
-      }
-    })
-  }
+ 
 }

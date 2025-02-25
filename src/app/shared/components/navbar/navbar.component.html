@@ -29,7 +29,7 @@
         </ul>
         <ul class="font-medium flex flex-col p-4  my-auto md:flex-row md:space-x-8 rtl:space-x-reverse   dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
           <li>
-            <a routerLink="cart" routerLinkActive="text-main dark:text-main" class=" relative  py-2 px-3 text-gray-900 rounded-sm md:hover:bg-transparent hover:text-main  dark:text-white  dark:hover:bg-gray-700  md:dark:hover:bg-transparent">Cart<i class="fa-solid fa-cart-shopping "></i><div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-main border-2 border-light rounded-full -top-3 -end-2 dark:border-gray-900">{{cartcount}}</div></a>
+            <a routerLink="cart" routerLinkActive="text-main dark:text-main" class=" relative  py-2 px-3 text-gray-900 rounded-sm md:hover:bg-transparent hover:text-main  dark:text-white  dark:hover:bg-gray-700  md:dark:hover:bg-transparent">Cart<i class="fa-solid fa-cart-shopping "></i><div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-main border-2 border-light rounded-full -top-3 -end-2 dark:border-gray-900">{{cartcount()}}</div></a>
           </li>
           <li>
             <a  (click)="logout()" class="  py-2 px-3 text-gray-900 rounded-sm md:hover:bg-transparent hover:text-main  dark:text-white  dark:hover:bg-gray-700  md:dark:hover:bg-transparent cursor-pointer">Logout</a>

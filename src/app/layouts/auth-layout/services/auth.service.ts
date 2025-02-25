@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal, WritableSignal } from '@angular/core';
 import { environment } from '../../../../env/env';
 import { Observable } from 'rxjs';
 import { jwtDecode } from "jwt-decode";
@@ -10,6 +10,8 @@ import { jwtDecode } from "jwt-decode";
 export class AuthService {
 
   constructor(private httpclient:HttpClient) { }
+
+  
 
   register(data:any):Observable<any>{
 
