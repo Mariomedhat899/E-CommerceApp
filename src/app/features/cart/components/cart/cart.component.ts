@@ -38,8 +38,8 @@ export class CartComponent {
     this.cartService.removeCartIteam(id).subscribe({
       next:(res)=>{
 
-        this.cartDetails = res;
         this.cartService.counter.set(this.cartDetails.numOfCartItems);
+        this.cartDetails = res;
         
       }
     })
@@ -49,8 +49,8 @@ export class CartComponent {
 
     this.cartService.updateCartQuantity(id,count).subscribe({
       next:(res)=>{
-        this.cartDetails = res;
         this.cartService.counter.set(this.cartDetails.numOfCartItems);
+        this.cartDetails = res;
       }
     })
   }

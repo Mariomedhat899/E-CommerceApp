@@ -33,6 +33,8 @@ export class ProductListComponent {
 
   allProducts: product[] = [];
 
+  
+
   getAllProducts() {
     this.productService.getProducts().subscribe({
       next: ({ data }) => {

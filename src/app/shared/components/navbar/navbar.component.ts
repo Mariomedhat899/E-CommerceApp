@@ -1,7 +1,7 @@
-import { Component, computed, inject, Input } from '@angular/core';
+import { Component, computed, inject, Input, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../../layouts/auth-layout/services/auth.service';
-import { CartService } from '../../../features/cart/services/cart.service';
+import { CartService } from '../../../features/cart/services/cart.service'; 
 
 @Component({
   selector: 'app-navbar',
