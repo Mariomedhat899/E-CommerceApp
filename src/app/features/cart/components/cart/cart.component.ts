@@ -49,7 +49,6 @@ export class CartComponent {
 
     this.cartService.updateCartQuantity(id,count).subscribe({
       next:(res)=>{
-        this.cartService.counter.set(this.cartDetails.numOfCartItems);
         this.cartDetails = res;
       }
     })

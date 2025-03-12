@@ -1,8 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { Observable } from 'rxjs';
 import { product } from '../../models/product';
+import { CartService } from '../../../cart/services/cart.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-details',
@@ -13,9 +15,21 @@ import { product } from '../../models/product';
 export class ProductDetailsComponent {
 
 
+  private readonly cart =inject(CartService);
   productDetails:product ={} as product
 
   ProductId!: string | null;
+
+  private readonly toast= inject(ToastrService);
+  
+  
+    showToastr(msg:string){
+      this.toast.success(msg,'',{
+        progressBar:true,
+        timeOut:1500
+      });
+    }
+
 
   private readonly activatedRoute = inject(ActivatedRoute);
 
@@ -26,6 +40,8 @@ export class ProductDetailsComponent {
       next:(urlData)=>{
 
         this.ProductId = urlData.get('id');
+
+      
         
       }
     })
@@ -46,10 +62,23 @@ export class ProductDetailsComponent {
         
       }
     })
-      
+    
+  }
 
+  AddToCart(){
+
+  
     
 
+    this.cart.addToCart(this.ProductId!).subscribe({
+      next:(res)=>{
+        this.showToastr('Product added to cart');        
+        this.cart.counter.set(res.numOfCartItems);
+      }
+    })
+   
   }
+
+ 
 
 }

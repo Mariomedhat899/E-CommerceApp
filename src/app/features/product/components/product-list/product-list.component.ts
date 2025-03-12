@@ -4,16 +4,20 @@ import { product } from '../../models/product';
 import { ProductCardComponent } from "../product-card/product-card.component";
 import { CartService } from '../../../cart/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
+import { SearchPipe } from '../../../../core/pipes/search.pipe';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-product-list',
-  imports: [ProductCardComponent, ],
+  imports: [ProductCardComponent,SearchPipe,FormsModule ],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {
 
+
+  searchTerm:string ='';
 
 
   private readonly productService = inject(ProductService);
@@ -59,9 +63,12 @@ export class ProductListComponent {
     this.cart.addToCart(id).subscribe({
       next:(res)=>{
 
-        console.log(res);
 
         this.showToastr('Product added to cart');
+
+
+        this.cart.counter.set(res.numOfCartItems);
+
         
 
       }

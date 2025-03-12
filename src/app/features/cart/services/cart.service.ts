@@ -10,7 +10,7 @@ import { ProductService } from '../../product/services/product.service';
 })
 export class CartService {
 
-  counter:WritableSignal<number> = signal<number>(0);
+  counter:WritableSignal<number>= signal<number>(0);
 
   constructor(private http:HttpClient,private pro:ProductService,private auth:AuthService) { }
 
