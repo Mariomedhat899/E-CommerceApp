@@ -18,8 +18,8 @@
             }
     
             <div class="flex justify-between">
-                <button routerLink="/main/products" class="main-btn bg-main w-fit">Continue Shopping</button>
-                <button [routerLink]="['/main/checkout',cartDetails.cartId]" class="main-btn w-fit bg-black text-white ms-5">Checkout <span class="ms-2">{{cartDetails.data.totalCartPrice}} EGP</span></button>
+                <button routerLink="/main/products" class="main-btn hover:bg-main/50 duration-300 bg-main w-fit">Continue Shopping</button>
+                <button [routerLink]="['/main/checkout',cartDetails.cartId]" class="main-btn duration-300 w-fit hover:bg-black/50 bg-black text-white ms-5">Checkout <span class="ms-2">{{cartDetails.data.totalCartPrice}} EGP</span></button>
             </div>
         </section>
     }@else {

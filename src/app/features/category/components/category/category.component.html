@@ -1,17 +1,17 @@
 <section class="container mx-auto  my-10 ">
     
   
-      <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4">
+      <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10  gap-10">
   
   
           @for ( category of allCategories ; track $index) {
   
-            <div  class="  relative mx-auto  p-20 md:p-3 hover:shadow-blue-500 hover:shadow-xl flex flex-col overflow-hidden transition duration-1000 group">
+            <div  class=" rounded-2xl  relative mx-auto    hover:shadow-blue-500 hover:shadow-xl flex flex-col overflow-hidden transition duration-1000 group">
                 <div >
                     <div >
                         <img [src]="category.image" class="w-full" alt="">
                     </div>
-                <h5 class="text-main bg-white dark:bg-transparent text-center text-2xl font-bold absolute bottom-0 top-[80%] left-0 right-0">{{category.name}}</h5>
+                <h5 class="text-main bg-white dark:bg-gray-900 text-center text-2xl font-bold absolute bottom-0 top-[80%] left-0 right-0">{{category.name}}</h5>
                 
                 </div>
             
