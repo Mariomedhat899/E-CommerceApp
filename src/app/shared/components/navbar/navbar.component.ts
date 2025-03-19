@@ -10,7 +10,6 @@ import { CartService } from '../../../features/cart/services/cart.service';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-[x: string]: any;
 
   @Input() layout!:string
 

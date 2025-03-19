@@ -13,6 +13,7 @@ import { ProductDetailsComponent } from './features/product/components/product-d
 import { authGuard } from './core/guards/auth.guard';
 import { isLogedGuard } from './core/guards/is-loged.guard';
 import { CheckoutComponent } from './features/orders/components/checkout/checkout.component';
+import { OrdersComponent } from './features/orders/components/orders/orders.component';
 
 export const routes: Routes = [
     
@@ -35,6 +36,8 @@ export const routes: Routes = [
         {path:'brands',component:BrandsComponent},
         {path:'cart',component:CartComponent},
         {path:'checkout/:id',component:CheckoutComponent},
+        {path:'allorders',component:OrdersComponent},
+
 
 
     ]},
