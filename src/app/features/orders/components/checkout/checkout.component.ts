@@ -57,6 +57,9 @@ export class CheckoutComponent {
 
       this.orderService.createCheckOut(this.cartId,this.checkForm.value).subscribe({
         next:(res)=>{
+
+          console.log(res);
+          
       
           open(res.session.url, '_self');
           
